@@ -18,3 +18,6 @@
                     :major-modes '(qml-mode)
                     :remote? nil
                     :server-id 'qmlls-lsp-server))) 
+
+(use-package lsp-ui
+  :ensure t)

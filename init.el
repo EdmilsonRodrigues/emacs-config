@@ -23,6 +23,10 @@
   :init (global-flycheck-mode t))
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 
+;; Projectile
+(use-package projectile
+  :ensure t)
+
 ;; Carregar configuração modularizada
 (let ((config-dir (expand-file-name "config" user-emacs-directory)))
   (if (file-directory-p config-dir)
@@ -51,11 +55,14 @@
    '(ac-php ace-window alchemist all-the-icons company-anaconda
             company-dict company-emoji company-erlang company-fuzzy
             company-go company-irony company-nginx company-shell
-            company-web dockerfile-mode eldoc-box ergoemacs-mode
-            flycheck-credo flycheck-golangci-lint flycheck-mypy
-            go-eldoc ini-mode jedi js2-mode lazy-ruff lsp-mode neotree
-            protobuf-mode robe shell-pop sphinx-doc tide toml-mode try
-            typescript-mode web-mode yaml-mode))
+            company-web counsel-projectile dockerfile-mode
+            ergoemacs-mode flycheck-credo flycheck-golangci-lint
+            flycheck-mypy go-eldoc ini-mode jedi js2-mode lazy-ruff
+            lsp-ivy lsp-ui neotree org-bullets org-download
+            org-project-capture org-roam org-superstar protobuf-mode
+            robe shell-pop sphinx-doc sqlformat tide toc-org toml-mode
+            try typescript-mode web-mode yaml-mode))
+ '(safe-local-variable-directories '("/home/familia/Documents/Work/sipub/"))
  '(shell-pop-shell-type
    '("ansi-term" "*shell-pop-ansi-term*"
      (lambda nil (ansi-term shell-pop-term-shell))))
