@@ -38,9 +38,13 @@
 
 (add-to-list 'all-the-icons-extension-icon-alist
              '("qml" all-the-icons-faicon "file-code-o"
+               :face all-the-icons-yellow))
+
+(add-to-list 'all-the-icons-extension-icon-alist
+             '("pyx" all-the-icons-alltheicon "python"
                :face all-the-icons-blue))
 
-;; (print-formatted-all-the-icons)  ; Run if wants to check the others to add
+;;(print-formatted-all-the-icons)  ; Run if wants to check the others to add
 ;; a new icon
 
 (set-face-attribute 'default nil :height 140 :family "Ubuntu Sans Mono" )

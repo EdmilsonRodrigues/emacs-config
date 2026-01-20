@@ -1,5 +1,10 @@
 ;; -*- lexical-binding: t -*-
 
+(use-package mason
+  :ensure t
+  :config
+  (mason-setup))
+
 (use-package lsp-mode
   :init (setq lsp-keymap-prefix "C-c l")
   :ensure t
@@ -9,6 +14,9 @@
          (rust-mode . lsp-deferred)
          (qml-mode . lsp-deferred)
          (yaml-mode . lsp-deferred)
+         (rust-mode . lsp-deferred)
+         (haskell-mode . lsp-deferred)
+         ;(haskell-literate-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp lsp-deferred
   :config

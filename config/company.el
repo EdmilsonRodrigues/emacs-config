@@ -46,3 +46,8 @@
       company-idle-delay 0.0) ;; default is 0.2
 
 
+;; Company mode for math symbols
+(use-package company-math
+  :ensure t)
+
+(add-to-list 'company-backends 'company-math-symbols-unicode)
