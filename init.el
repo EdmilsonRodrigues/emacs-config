@@ -1,43 +1,19 @@
 ;; -*- lexical-binding: t -*-
 
-;;; Pacotes
-(require 'package)
-(setq package-enable-at-startup nil)  ; desabilitar gerenciador padrão
+;; Load my configuration path
+(add-to-list 'load-path "~/.emacs.d/config/")
+(add-to-list 'load-path "~/.emacs.d/config/languages")
 
-;; MELPA - repositório
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-
-(package-initialize)  ; iniciar pacotes
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-;; Try package
-(use-package try
-  :ensure t)
-
-;; Static Analysis
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode t))
-(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-
-;; Projectile
-(use-package projectile
-  :ensure t)
-
-;; Carregar configuração modularizada
-(let ((config-dir (expand-file-name "config" user-emacs-directory)))
-  (if (file-directory-p config-dir)
-      (progn
-        (dolist (file (directory-files config-dir t "\\.el$"))
-          (load-file file))
-        ;; We define lang-dir here to make sure it's always available
-        ;; when we need it.
-        (let ((lang-dir (expand-file-name "languages" config-dir)))
-          (dolist (file (directory-files lang-dir t "\\.el$"))
-            (load-file file))))))      
+;; Load my configurations
+(require 'packages-config)
+(require 'gui-config)
+(require 'completion-config)
+(require 'projects-config)
+(require 'git-config)
+(require 'lsp-config)
+(require 'keybindings-config)
+(require 'org-config)
+(require 'web-config)
 
 ;; melpa stuff
 
@@ -52,16 +28,22 @@
      "7334f761edfccfa87893211f651220a0899bb206f042b856393b7af22b0413e2"
      default))
  '(package-selected-packages
-   '(ac-php ace-window alchemist all-the-icons company-anaconda
-            company-dict company-emoji company-erlang company-fuzzy
-            company-go company-irony company-nginx company-shell
-            company-web counsel-projectile dockerfile-mode
-            ergoemacs-mode flycheck-credo flycheck-golangci-lint
-            flycheck-mypy go-eldoc ini-mode jedi js2-mode lazy-ruff
-            lsp-ivy lsp-ui neotree org-bullets org-download
-            org-project-capture org-roam org-superstar protobuf-mode
-            robe shell-pop sphinx-doc sqlformat tide toc-org toml-mode
-            try typescript-mode web-mode yaml-mode))
+   '(ac-php ace-window alchemist all-the-icons bazel centaur-tabs
+            company-anaconda company-dict company-emoji company-erlang
+            company-fuzzy company-go company-irony company-math
+            company-nginx company-shell company-web consult
+            consult-dir counsel-projectile cython-mode dashboard
+            diff-hl dockerfile-mode dpkg-dev-el editorconfig ein
+            emmet-mode emojify ergoemacs-mode flycheck-credo
+            flycheck-eglot flycheck-golangci-lint flycheck-haskell
+            flycheck-inline flycheck-mypy go-eldoc impatient-mode
+            ini-mode jedi js2-mode lazy-ruff lsp-ivy lsp-ui magit
+            marginalia mason neotree orderless org-bullets
+            org-download org-project-capture org-roam org-superstar
+            origami protobuf-mode robe rust-mode shell-pop
+            simple-httpd spaceline sphinx-doc sqlformat tide toc-org
+            toml-mode treesit-auto try typescript-mode vertico
+            web-mode yaml-mode))
  '(safe-local-variable-directories '("/home/familia/Documents/Work/sipub/"))
  '(shell-pop-shell-type
    '("ansi-term" "*shell-pop-ansi-term*"
@@ -77,4 +59,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-

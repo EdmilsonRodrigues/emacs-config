@@ -53,3 +53,5 @@
          ("C-S-<iso-lefttab>" . org-cycle)
          ("C-c C-<up>" . org-move-item-up)
          ("C-c C-<down>" . org-move-item-down)))
+
+(provide 'org-config)

@@ -1,11 +1,40 @@
-elpa
-tests
-eln-cache
-anaconda-mode
-.lsp-session*
-.python-environments
-ac-comphist.dat
-auto-save-list/
-session.1081bd36b634e90538175778187815473200000038610108
-recentf
-projectile-bookmarks.eld
+# Rust artifacts
+target/
+
+# Node artifacts
+build/
+prebuilds/
+node_modules/
+
+# Swift artifacts
+.build/
+
+# Go artifacts
+_obj/
+
+# Python artifacts
+.venv/
+dist/
+*.egg-info
+*.whl
+
+# C artifacts
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.pc
+
+# Example dirs
+/examples/*/
+
+# Grammar volatiles
+*.wasm
+*.obj
+*.o
+
+# Archives
+*.tar.gz
+*.tgz
+*.zip
