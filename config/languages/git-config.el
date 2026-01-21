@@ -1,16 +1,18 @@
 ;; -*- lexical-binding: t -*-
 
-(use-package with-editor
-  :ensure t)
+;; --- Use GNU Emacs as $EDITOR for child processes ---
+(use-package with-editor)
 
+;; --- Magit ---
 (use-package magit
-  :ensure t
   :bind ("C-x g" . magit-status))
 
-;; Show diff inline
+;; Diff Highlighting
 (use-package diff-hl
-  :ensure t)
-
+  :config
+  (global-diff-hl-mode)
+  ;; This updates the fringe signs immediately after you stage changes in Magit
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 (provide 'git-config)
-

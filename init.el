@@ -6,12 +6,16 @@
 
 ;; Load my configurations
 (require 'packages-config)
+(require 'keybindings-config)
 (require 'gui-config)
 (require 'completion-config)
+(require 'completion-ui-config)
+(require 'main-languages-config)
+(require 'other-languages-config)
+(require 'tooling-languages-config)
 (require 'projects-config)
 (require 'git-config)
 (require 'lsp-config)
-(require 'keybindings-config)
 (require 'org-config)
 (require 'web-config)
 
@@ -32,17 +36,19 @@
             company-anaconda company-dict company-emoji company-erlang
             company-fuzzy company-go company-irony company-math
             company-nginx company-shell company-web consult
-            consult-dir counsel-projectile cython-mode dashboard
-            diff-hl dockerfile-mode dpkg-dev-el editorconfig ein
-            emmet-mode emojify ergoemacs-mode flycheck-credo
-            flycheck-eglot flycheck-golangci-lint flycheck-haskell
-            flycheck-inline flycheck-mypy go-eldoc impatient-mode
-            ini-mode jedi js2-mode lazy-ruff lsp-ivy lsp-ui magit
-            marginalia mason neotree orderless org-bullets
-            org-download org-project-capture org-roam org-superstar
-            origami protobuf-mode robe rust-mode shell-pop
-            simple-httpd spaceline sphinx-doc sqlformat tide toc-org
-            toml-mode treesit-auto try typescript-mode vertico
+            consult-dir corfu corfu-terminal counsel-projectile
+            crystal-mode cython-mode dashboard diff-hl dockerfile-mode
+            dpkg-dev-el editorconfig ein emmet-mode emojify
+            ergoemacs-mode flycheck-credo flycheck-eglot
+            flycheck-golangci-lint flycheck-haskell flycheck-inline
+            flycheck-mypy go-eldoc impatient-mode ini-mode jedi
+            js2-mode kind-icon lazy-ruff lsp-ivy lsp-ui magit
+            marginalia mason neotree nerd-icons-corfu orderless
+            org-bullets org-download org-project-capture org-roam
+            org-superstar origami protobuf-mode robe rust-mode
+            shell-pop simple-httpd solidity-flycheck solidity-mode
+            spaceline sphinx-doc sqlformat tide toc-org toml-mode
+            treesit-auto try typescript-mode vertico vertico-directory
             web-mode yaml-mode))
  '(safe-local-variable-directories '("/home/familia/Documents/Work/sipub/"))
  '(shell-pop-shell-type

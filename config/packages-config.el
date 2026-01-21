@@ -1,20 +1,24 @@
 ;; -*- lexical-binding: t -*-
 (require 'package)
 
-(setq package-enable-at-startup nil)  ; desabilitar gerenciador padrão
+;; --- Disable Stadard Package Manager ---
+(setq package-enable-at-startup nil)
 
-;; MELPA - repositório
-(add-to-list 'package-archives '(("elpa" . "http://elpa.gnu.org/packages/")
-                                 ("melpa" . "https://melpa.org/packages/")
-                                 ("org" . "https://orgmode.org/elpa/")))
+;; --- Setup Repositories ---
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")))
+                                 ;("elpa" . "http://elpa.gnu.org/packages/")
+                                 ;("org" . "https://orgmode.org/elpa/")))
 
+;; --- Setup Package Manager --- 
 (package-initialize)  ; iniciar pacotes
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package try
-  :ensure t)
+(setq use-package-always-ensure t)
+
+;; --- Package for tests ---
+(use-package try)
 
 (provide 'packages-config)
